@@ -49,17 +49,6 @@ public class User {
     private String googleSub;
 
 
-    //  1 : N (양방향) - "mappedBy"가 핵심
-    @OneToMany(mappedBy = "author")
-    private List<Post> posts = new ArrayList<>();
-    /* mappedBy = "author" : 이 관계의 주인은 post쪽의 author 필드다.
-    즉, FK는 post테이블에 생김.
-    post 테이블에 author_id 같은 FK 컬럼이 생기고 users 테이블에는 FK가 생기지 않는다.
-     */
-
-    @OneToMany(mappedBy = "author")
-    private List<Comment> comments = new ArrayList<>();
-
     // 변경 로직은 엔티티에 모아두면 유지보수에 좋음.
     public void updateName(String name) {
         this.name = name;
